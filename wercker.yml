@@ -2,13 +2,8 @@ box:golang
 
 dev:
   steps:
-    - setup-go-workspace:
-        package-dir: github.com/MasterHuangJQ/wercker
-
-    -script:
-      name: env
-      code: env
-
-    -internal/watch:
-      code: go run main.go
-      reload: true
+    - setup-go-workspace
+    - script:
+        name: go build
+        code: |
+          go build -o main.go
